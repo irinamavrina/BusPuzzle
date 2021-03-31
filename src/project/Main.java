@@ -1,8 +1,5 @@
 package project;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -12,27 +9,11 @@ import static project.FileIOManager.writeToFile;
 public class Main {
     public static void main(String[] args) {
         List<Entry> entries = new ArrayList<>();
-        try {
-            readFromFile(entries);
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-        }
+        readFromFile(entries);
         List<Entry> entries1 = entries.stream().distinct().collect(Collectors.toList());
-
         excludeAllInefficient(entries1);
-        entries1.sort(new Comparator<Entry>() {
-            @Override
-            public int compare(Entry o1, Entry o2) {
-                return o1.getDepartureTime().compareTo(o2.getDepartureTime());
-            }
-        });
-
-        try {
-            writeToFile(entries1, "Posh","Grotty");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
+        entries1.sort(Comparator.comparing(Entry::getDepartureTime));
+        writeToFile(entries1);
     }
 
 
