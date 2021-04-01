@@ -9,6 +9,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class FileIOManager {
@@ -18,10 +19,11 @@ public class FileIOManager {
         Scanner scanner = new Scanner(System.in);
         String fileName = scanner.nextLine();
         Path path = Paths.get(fileName);
+        scanner.close();
         try (Scanner scanner1 = new Scanner(path)) {
             while (scanner1.hasNext()) {
                 Entry e = parseLine(scanner1.nextLine());
-                if (e.routeTime() > 60 || e.getBusCompany().equals("Error")) continue;
+                if (e.getBusCompany().equals("Error") || e.routeTime() > 60) continue;
                 if (e.getBusCompany().equals("Posh") || e.getBusCompany().equals("Grotty"))
                     list.add(e);
             }
@@ -58,17 +60,17 @@ public class FileIOManager {
 
     private static Entry parseLine(String line) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        Scanner scanner = new Scanner(line);
-        scanner.useDelimiter(" ");
-        String busCompany = scanner.next();
-        String dTime = scanner.next();
-        String aTime = scanner.next();
         LocalTime departureTime = null;
         LocalTime arrivalTime = null;
-        try {
+        String busCompany;
+        try (Scanner scanner = new Scanner(line)) {
+            scanner.useDelimiter(" ");
+            busCompany = scanner.next();
+            String dTime = scanner.next();
+            String aTime = scanner.next();
             departureTime = LocalTime.parse(dTime, formatter);
             arrivalTime = LocalTime.parse(aTime, formatter);
-        } catch (DateTimeParseException e) {
+        } catch (DateTimeParseException | NoSuchElementException e) {
             busCompany = "Error";
             e.printStackTrace();
         }
