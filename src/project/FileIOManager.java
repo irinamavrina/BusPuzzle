@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class FileIOManager {
+public class FileIOManager {//
     public static final String OUTPUT = "output.txt";
 
     public static void readFromFile(List<Entry> list) {
