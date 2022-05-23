@@ -28,7 +28,7 @@ jobs:
           destination-branch: master
           git-user: "Git User"
           git-user-email: git-user@email.com
-          git-commit-message: "Custom commit message 2.0"
+          git-commit-message: "Custom commit message 3.0"
           git-commit-sign-off: "false"
           excludes: /sub:sub/:sub
 #      - name: Make commit to library
