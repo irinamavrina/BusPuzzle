@@ -29,4 +29,6 @@ jobs:
           destination_repo: 'irinamavrina/BusPuzzleNew'
           destination_folder: 'project'
           destination_branch: 'master'
+          user_email: 'example@email.com'
+          user_name: 'rin'
           commit_message: 'A custom message for the commit'
