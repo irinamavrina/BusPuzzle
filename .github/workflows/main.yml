@@ -8,7 +8,6 @@ on:
       - 'src/project/**'
       - '!src/project/sub/**'
 
-
 jobs:
   copy-file:
     runs-on: ubuntu-latest
@@ -20,15 +19,27 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
-      - name: Make commit to library
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.WORKFLOW_TOKEN }}
+      - name: Commit to state repository
+        uses: drud/action-cross-commit@master
         with:
-          source_file: 'src/project/Entry.java'
-          destination_repo: 'irinamavrina/BusPuzzleNew'
-          destination_folder: 'project'
-          destination_branch: 'master'
-          user_email: 'example@email.com'
-          user_name: 'rin'
-          commit_message: 'A custom message for the commit'
+          source-folder: src/project
+          destination-repository: https://irinamavrina:${{ secrets.WORKFLOW_TOKEN }}@github.com/org/BusPuzzleNew
+          destination-folder: src/project
+          destination-branch: master
+          git-user: "Git User"
+          git-user-email: git-user@email.com
+          git-commit-message: "Custom commit message (optional)"
+          git-commit-sign-off: "false"
+          excludes: src/project/sub:src/project/Main.java
+#      - name: Make commit to library
+#        uses: dmnemec/copy_file_to_another_repo_action@main
+#        env:
+#          API_TOKEN_GITHUB: ${{ secrets.WORKFLOW_TOKEN }}
+#        with:
+#          source_file: 'src/project/Entry.java'
+#          destination_repo: 'irinamavrina/BusPuzzleNew'
+#          destination_folder: 'project'
+#          destination_branch: 'master'
+#          user_email: 'example@email.com'
+#          user_name: 'rin'
+#          commit_message: 'A custom message for the commit'

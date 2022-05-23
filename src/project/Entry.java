@@ -6,7 +6,7 @@ import java.util.*;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
 public class Entry {
-	private LocalTime departureTime;//
+	private LocalTime departureTime;////
 	private LocalTime arrivalTime;////
 	private String busCompany;////
 	private static final int MINUTES_IN_DAY = 1440;
