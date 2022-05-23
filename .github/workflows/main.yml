@@ -6,8 +6,7 @@ on:
       [ master ]
     paths:
       - 'project/**'
-    paths-ignore:
-      - 'project/sub/**' 
+      - '!project/sub/**'
 
 
 jobs:
