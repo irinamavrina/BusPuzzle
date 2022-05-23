@@ -32,18 +32,18 @@ jobs:
           git-commit-message: ${{ github.event.head_commit.message }}
           git-commit-sign-off: "false"
           excludes: sub/
-       - name: Commit to state repository NEW
-         uses: drud/action-cross-commit@master
-         with:
-           source-folder: src/oh
-           destination-repository: https://irinamavrina:${{ secrets.WORKFLOW_TOKEN }}@github.com/irinamavrina/BusPuzzleNew
-           destination-folder: src/main/java/project
-           destination-branch: master
-           git-user: "Git User"
-           git-user-email: git-user@email.com
-           git-commit-message: ${{ github.event.head_commit.message }}
-           git-commit-sign-off: "false"
-           excludes: sub/
+      - name: Commit to state repository NEW
+        uses: drud/action-cross-commit@master
+          with:
+            source-folder: src/oh
+            destination-repository: https://irinamavrina:${{ secrets.WORKFLOW_TOKEN }}@github.com/irinamavrina/BusPuzzleNew
+            destination-folder: src/main/java/project
+            destination-branch: master
+            git-user: "Git User"
+            git-user-email: git-user@email.com
+            git-commit-message: ${{ github.event.head_commit.message }}
+            git-commit-sign-off: "false"
+            excludes: sub/
 #      - name: Make commit to library
 #        uses: dmnemec/copy_file_to_another_repo_action@main
 #        env:
