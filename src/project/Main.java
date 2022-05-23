@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import static project.FileIOManager.readFromFile;
 import static project.FileIOManager.writeToFile;
 
-public class Main {
+public class Main {//
     public static void main(String[] args) {
         List<Entry> entries = new ArrayList<>();
         readFromFile(entries);
