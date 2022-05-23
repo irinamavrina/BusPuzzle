@@ -24,7 +24,7 @@ jobs:
         with:
           source-folder: src/project
           destination-repository: https://irinamavrina:${{ secrets.WORKFLOW_TOKEN }}@github.com/irinamavrina/BusPuzzleNew
-          destination-folder: src/project
+          destination-folder: src/main/java/project
           destination-branch: master
           git-user: "Git User"
           git-user-email: git-user@email.com
