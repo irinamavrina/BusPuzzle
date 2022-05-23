@@ -30,7 +30,7 @@ jobs:
           git-user-email: git-user@email.com
           git-commit-message: "Custom commit message 2.0"
           git-commit-sign-off: "false"
-          excludes: src/project/sub:src/main/java/project/sub
+          excludes: /sub:sub/:sub
 #      - name: Make commit to library
 #        uses: dmnemec/copy_file_to_another_repo_action@main
 #        env:
