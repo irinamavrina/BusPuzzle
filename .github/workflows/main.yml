@@ -6,6 +6,7 @@ on:
       [ master ]
     paths:
       - 'src/project/**'
+      - '!src/project/sub/**'
 
 
 jobs:
@@ -24,7 +25,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.WORKFLOW_TOKEN }}
         with:
-          source_file: 'Entry.java'
+          source_file: 'src/project/Entry.java'
           destination_repo: 'irinamavrina/BusPuzzleNew'
           destination_folder: 'project'
           destination_branch: 'master'
