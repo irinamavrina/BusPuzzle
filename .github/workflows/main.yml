@@ -5,7 +5,7 @@ on:
     branches:
       [ master ]
     paths:
-      - 'project/**'
+      - 'src/project/**'
 
 
 jobs:
