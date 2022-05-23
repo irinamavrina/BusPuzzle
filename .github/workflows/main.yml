@@ -6,7 +6,6 @@ on:
       [ master ]
     paths:
       - 'project/**'
-      - '!project/sub/**'
 
 
 jobs:
