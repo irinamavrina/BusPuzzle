@@ -1,4 +1,4 @@
-name: Update profiles in veraPDF-library
+name: Update project
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
       [ master ]
     paths:
       - 'src/project/**'
-      - 'src/oh/New.java'
       - '!src/project/sub/**'
 
 jobs:
