@@ -1,4 +1,4 @@
 package oh;
 
-public class New1 {
+public class New1 {//
 }
