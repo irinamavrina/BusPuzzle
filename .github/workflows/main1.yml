@@ -21,7 +21,7 @@ jobs:
       - name: Commit to state repository
         uses: drud/action-cross-commit@master
         with:
-          source-folder: src/oh/New.java
+          source-folder: src/oh
           destination-repository: https://irinamavrina:${{ secrets.WORKFLOW_TOKEN }}@github.com/irinamavrina/BusPuzzleNew
           destination-folder: src/main/java/project
           destination-branch: master
