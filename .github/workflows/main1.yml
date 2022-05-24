@@ -21,7 +21,7 @@ jobs:
       - name: Commit to state repository
         uses: drud/action-cross-commit@master
         with:
-          source-folder: src/oh
+          source-folder: src/oh/New.java
           destination-repository: https://irinamavrina:${{ secrets.WORKFLOW_TOKEN }}@github.com/irinamavrina/BusPuzzleNew
           destination-folder: src/main/java/project
           destination-branch: master
@@ -29,7 +29,7 @@ jobs:
           #          git-user-email: git-user@email.com
           git-commit-message: ${{ github.event.head_commit.message }}
           git-commit-sign-off: "false"
-          excludes: Entry.java:Main.java:FileIOManager.java
+          excludes: Entry.java:Main.java
 
 #      - name: Commit to state repository NEW
 #        uses: drud/action-cross-commit@master
