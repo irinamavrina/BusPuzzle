@@ -4,8 +4,6 @@ on:
   push:
     branches:
       [ master ]
-    paths:
-      - '!.github/**'
 
 jobs:
   copy-file:
@@ -29,7 +27,6 @@ jobs:
 #          git-user-email: git-user@email.com
           git-commit-message: ${{ github.event.head_commit.message }}
           git-commit-sign-off: "false"
-          excludes: .github
 
 #      - name: Commit to state repository NEW
 #        uses: drud/action-cross-commit@master
