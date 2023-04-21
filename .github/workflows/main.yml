@@ -21,7 +21,7 @@ jobs:
       - name: Commit to state repository
         uses: drud/action-cross-commit@master
         with:
-          source-folder: src/project
+          source-folder: .
           destination-repository: https://irinamavrina:${{ secrets.WORKFLOW_TOKEN }}@github.com/irinamavrina/BusPuzzleNew
           destination-folder: .
           destination-branch: master
@@ -29,6 +29,7 @@ jobs:
 #          git-user-email: git-user@email.com
           git-commit-message: ${{ github.event.head_commit.message }}
           git-commit-sign-off: "false"
+          excludes: .github
 
 #      - name: Commit to state repository NEW
 #        uses: drud/action-cross-commit@master
