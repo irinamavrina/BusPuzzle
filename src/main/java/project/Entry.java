@@ -9,7 +9,7 @@ public class Entry {
 	private LocalTime departureTime;////
 	private LocalTime arrivalTime;//////
 	private String busCompany;//////////
-	private static final int MINUTES_IN_DAY = 1440;//
+	private static final int MINUTES_IN_DAY = 1440;
 
 	public Entry(LocalTime departureTime, LocalTime arrivalTime, String busCompany) {
 		this.departureTime = departureTime;
