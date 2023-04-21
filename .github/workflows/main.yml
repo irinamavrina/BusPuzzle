@@ -5,8 +5,7 @@ on:
     branches:
       [ master ]
     paths:
-      - 'src/project/**'
-      - '!src/project/sub/**'
+      - '!.github/**'
 
 jobs:
   copy-file:
@@ -24,13 +23,13 @@ jobs:
         with:
           source-folder: src/project
           destination-repository: https://irinamavrina:${{ secrets.WORKFLOW_TOKEN }}@github.com/irinamavrina/BusPuzzleNew
-          destination-folder: src/main/java/project
+          destination-folder: .
           destination-branch: master
           git-user: "Git User"
 #          git-user-email: git-user@email.com
           git-commit-message: ${{ github.event.head_commit.message }}
           git-commit-sign-off: "false"
-          excludes: sub:New.java
+
 #      - name: Commit to state repository NEW
 #        uses: drud/action-cross-commit@master
 #        with:
